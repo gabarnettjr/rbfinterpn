@@ -1,13 +1,9 @@
 #!/mu/bin/perl
 
-# A class to define an Rbf object, which is useful for working with RBFs.
-# Greg Barnett
-# December 2024
-
 package Rbf;
 
-use strict;
-use warnings;
+eval { use strict;   };
+eval { use warnings; };
 
 eval { use FindBin; };
 use lib "$FindBin::Bin";
@@ -83,11 +79,7 @@ sub test2d
 
 sub setDimensions
 {
-    if ((scalar @_) != 2)
-    {
-        print STDERR "This function requires exactly one input, the number of dimensions.";  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $dimensions = shift;
 
@@ -116,11 +108,7 @@ sub dimensions
 
 sub setPolyDegree
 {
-    if ((scalar @_) != 2)
-    {
-        print STDERR "This function requires exactly one input, the polynomial degree.";  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $polyDegree = shift;
 
@@ -160,11 +148,7 @@ sub numPolys
 
 sub setExponent
 {
-    if ((scalar @_) != 2)
-    {
-        print STDERR "This function requires exactly one input, the RBF exponent.";  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $exponent = shift;
 
@@ -191,11 +175,7 @@ sub exponent
 
 sub setNodes
 {
-    if ((scalar @_) != 2)
-    {
-        print STDERR "This method requires exactly one input, the nodes.  You gave " . (scalar @_ - 1);  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $nodes = shift;
 
@@ -251,11 +231,7 @@ sub nodes
 
 sub setEvalPts
 {
-    if ((scalar @_) != 2)
-    {
-        print STDERR "This method requires exactly one input, the evaluation points.  You gave " . (scalar @_ - 1);  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $evalPts = shift;
 
@@ -309,11 +285,7 @@ sub evalPts
 
 sub setFunctionValues
 {
-    if ((scalar @_) != 2)
-    {
-        print STDERR "This method requires exactly one input, the function values.  You gave " . (scalar @_ - 1);  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $functionValues = shift;
 
@@ -365,12 +337,7 @@ sub functionValues
 
 sub phi
 {
-    # A simple scalar RBF function.
-    if ((scalar @_) != 2)
-    {
-        print STDERR "phi function requires exactly one scalar input, a radius.  You gave " . (scalar @_ - 1);  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $r = shift;
     
@@ -381,12 +348,7 @@ sub phi
 
 sub polyMat
 {
-    # Function that returns the polynomial matrix at the input points.
-    if ((scalar @_) != 2)
-    {
-        print STDERR "Function requires exactly one input, the points.  You gave " . (scalar @_ - 1);  die;
-    }
-
+    die if scalar @_ != 2;
     my $self = shift;
     my $pts = shift;
 
@@ -509,11 +471,7 @@ sub evaluate
 
 sub firstTestFunction2d
 {
-    if (scalar @_ != 1)
-    {
-        print STDERR "This function requires exactly one input, the nodes, given in matrix form.";  die;
-    }
-
+    die if scalar @_ != 1;
     my $pts = shift;
 
     return $pts->rows([0])->pow(2)->plus($pts->rows([1]));
@@ -523,11 +481,7 @@ sub firstTestFunction2d
 
 sub secondTestFunction2d
 {
-    if (scalar @_ != 1)
-    {
-        print STDERR "This function requires exactly one input, the nodes, given in matrix form.";  die;
-    }
-
+    die if scalar @_ != 1;
     my $pts = shift;
 
     return $pts->rows([0])->cos->dotTimes($pts->rows([1])->sin);
