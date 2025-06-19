@@ -1,4 +1,3 @@
-#!/mask/software/RHEL7.7/bin/python3
 
 # Given full paths to two sets of points (A and B), this script writes an output
 # file that contains the index of the nearest neighbors in set B to each point
