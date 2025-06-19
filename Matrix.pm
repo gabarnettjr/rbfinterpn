@@ -5,8 +5,8 @@ package Matrix;
 # Greg Barnett
 # August 2023
 
-use strict;
-use warnings;
+eval { use strict;   };
+eval { use warnings; };
 
 use constant PI => 3.141592653589793;
 
@@ -14,7 +14,7 @@ use constant PI => 3.141592653589793;
 
 # TESTS
 
-# /mu/bin/perl -e 'use lib "/home/gregorybarne/tmpCode"; use Matrix; Matrix::test_ALL;'
+# perl -e "use lib \"C:\Users\gabarnettjr\"; use Matrix; Matrix::test_ALL;"
 
 sub test_new
 {
