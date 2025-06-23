@@ -1,4 +1,3 @@
-#!/mu/bin/perl
 
 package Rbf;
 
@@ -24,8 +23,8 @@ sub new
 
 sub test2d
 {
-    # /mu/bin/perl -e 'use lib "/home/gregorybarne/tmpCode"; use Rbf; Rbf::test2d();'
     # perl -e "use lib \"Z:\tmpCode\"; use Rbf; Rbf::test2d();"
+    # Linux test located in do.pl script == 55
     
     # Make a new Rbf object.
     my $phs = Rbf::new();
@@ -490,5 +489,3 @@ sub secondTestFunction2d
 ################################################################################
 
 return 1;
-
-
